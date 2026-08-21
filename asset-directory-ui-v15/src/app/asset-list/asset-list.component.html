@@ -1,0 +1,37 @@
+<h1>Asset Directory</h1>
+
+<table>
+  <thead>
+    <tr><th>Name</th><th>Category</th><th>Assigned To</th><th></th></tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let asset of assets">
+      <ng-container *ngIf="editingAsset?.id === asset.id; else viewRow">
+        <td><input [(ngModel)]="editingAsset!.name" /></td>
+        <td><input [(ngModel)]="editingAsset!.category" /></td>
+        <td><input [(ngModel)]="editingAsset!.assignedTo" /></td>
+        <td>
+          <button (click)="saveEdit()">Save</button>
+          <button (click)="cancelEdit()">Cancel</button>
+        </td>
+      </ng-container>
+      <ng-template #viewRow>
+        <td>{{ asset.name }}</td>
+        <td>{{ asset.category }}</td>
+        <td>{{ asset.assignedTo }}</td>
+        <td>
+          <button (click)="startEdit(asset)">Edit</button>
+          <button (click)="deleteAsset(asset.id!)">Delete</button>
+        </td>
+      </ng-template>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Add Asset</h2>
+<form (ngSubmit)="addAsset()">
+  <input [(ngModel)]="newAsset.name" name="name" placeholder="Name" required />
+  <input [(ngModel)]="newAsset.category" name="category" placeholder="Category" required />
+  <input [(ngModel)]="newAsset.assignedTo" name="assignedTo" placeholder="Assigned To" required />
+  <button type="submit">Add</button>
+</form>
