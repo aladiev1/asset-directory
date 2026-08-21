@@ -1,0 +1,6 @@
+@AssetDirectory.Api_HostAddress = http://localhost:5166
+
+GET {{AssetDirectory.Api_HostAddress}}/assetdirectory/
+Accept: application/json
+
+###
