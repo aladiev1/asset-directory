@@ -10,7 +10,7 @@ import { AssetService } from '../asset.service';
   imports: [CommonModule, FormsModule],
   templateUrl: './asset-list.html',
 })
-export class AssetListComponent implements OnInit {
+export class AssetList implements OnInit {
   assets: Asset[] = [];
   newAsset: Asset = { name: '', category: '', assignedTo: '' };
   editingAsset: Asset | null = null;
