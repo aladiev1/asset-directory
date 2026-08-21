@@ -19,13 +19,16 @@ This repo includes two frontends against the same API:
 ## Running locally
 
 **API**
+
 1. `cd AssetDirectory.Api` then run the project (F5 in Visual Studio, or `dotnet run`) — check the printed port
 
 **Frontend (latest Angular)**
+
 2. `cd asset-directory-ui && ng serve` — starts at http://localhost:4200
 3. Update `apiUrl` in `asset.service.ts` if your API port differs from 5166
 
 **Frontend (Angular 15)**
+
 4. `cd asset-directory-ui-v15 && npx -p @angular/cli@15 ng serve` — also starts at http://localhost:4200 (stop the other frontend first if both are running, since they'd conflict on the same port)
 5. Update `apiUrl` in `asset.service.ts` here too if needed
 
